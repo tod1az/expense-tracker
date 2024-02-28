@@ -1,20 +1,19 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { ConvexProvider, ConvexReactClient } from "convex/react";
+import Main from "./components/Main";
+import { CONVEX_URL } from "@env";
+import "react-native-get-random-values";
+import { View } from "react-native";
+
+const convex = new ConvexReactClient(CONVEX_URL, {
+  unsavedChangesWarning: false,
+});
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <ConvexProvider client={convex}>
+      <View className="flex flex-col bg-gray-600 h-screen justify-start items-center text-4xl mt-14">
+        <Main />
+      </View>
+    </ConvexProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
