@@ -14,12 +14,20 @@ export default function Main() {
       </Text>
       <Separator />
       {expenses?.map((expense) => (
-        <View key={expense._id}>
+        <View className="bg-white/40" key={expense._id}>
           <Card expense={expense} />
           <Separator />
         </View>
       ))}
-      {expenses && <Text>{`Total:$${getTotalExpenses(expenses)}`}</Text>}
+      {expenses && (
+        <View className="bg-white/20">
+          <Separator />
+          <Text className="mx-auto text-2xl my-3">{`Total: $${getTotalExpenses(
+            expenses
+          )}`}</Text>
+          <Separator />
+        </View>
+      )}
     </View>
   );
 }
