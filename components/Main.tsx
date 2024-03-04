@@ -1,17 +1,18 @@
-import { Text, View, ActivityIndicator } from "react-native";
+import { Text, View, ActivityIndicator, Pressable } from "react-native";
 import { api } from "../convex/_generated/api";
 import { useQuery } from "convex/react";
 import Separator from "./Separator";
 import { getTotalExpenses } from "../lib/helpers";
 import ExpensesList from "./ExpensesList";
+import { Link } from "expo-router";
+import PageContainer from "./PageContainer";
+import Header from "./Header";
 
 export default function Main() {
   const expenses = useQuery(api.expenses.getExpenses);
   return (
-    <View>
-      <Text className="font-bold text-2xl mb-10 text-white text-center pt-6">
-        Gastos
-      </Text>
+    <PageContainer>
+      <Header>Gastos</Header>
       <Separator />
       {expenses ? <ExpensesList expenses={expenses} /> : <ActivityIndicator />}
       {expenses && (
@@ -23,6 +24,11 @@ export default function Main() {
           <Separator />
         </View>
       )}
-    </View>
+      <View className="bg-white/80 w-10 h-10  flex items-center mt-6 rounded-full justify-center">
+        <Link href={"/post"}>
+          <Text>+</Text>
+        </Link>
+      </View>
+    </PageContainer>
   );
 }
