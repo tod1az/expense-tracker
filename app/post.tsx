@@ -33,7 +33,7 @@ export default function Page() {
   };
 
   return (
-    <PageContainer>
+    <PageContainer height="h-screen">
       <Header>Agregar un gasto</Header>
       <View className="bg-white/40 rounded-lg p-2 w-3/4 pb-4 flex flex-col items-center gap-3">
         <Text>Descripción</Text>

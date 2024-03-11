@@ -15,13 +15,13 @@ export default function ExpensesList(props: ExpensesListProps) {
     );
   }
   return (
-    <>
+    <View className="flex flex-col">
       {props.expenses?.map((expense) => (
-        <View className="bg-white/40" key={expense._id}>
+        <View className="bg-white/40 flex flex-col" key={expense._id}>
           <Card expense={expense} />
           <Separator />
         </View>
       ))}
-    </>
+    </View>
   );
 }

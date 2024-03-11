@@ -1,10 +1,24 @@
-import { View } from "react-native";
+import { View, ScrollView } from "react-native";
 import { ReactNode } from "react";
 
-export default function PageContainer({ children }: { children: ReactNode }) {
+type PageContainerProps = {
+  children: ReactNode;
+  height?: string;
+};
+
+export default function PageContainer({
+  children,
+  height,
+}: PageContainerProps) {
   return (
-    <View className="bg-gray-600 h-screen  flex flex-col items-center">
-      {children}
-    </View>
+    <ScrollView>
+      <View
+        className={`bg-gray-600 flex flex-col items-center pb-4 ${
+          height ? height : ""
+        }`}
+      >
+        {children}
+      </View>
+    </ScrollView>
   );
 }

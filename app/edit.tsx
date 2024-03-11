@@ -43,7 +43,7 @@ export default function Page() {
   };
 
   return (
-    <PageContainer>
+    <PageContainer height="h-screen">
       <Header>Editar Gasto</Header>
       <View className="bg-white/40 rounded-lg pt-2 px-3 w-3/4 flex flex-col items-center text-left gap-3">
         <Text className="w-full px-2">Descripción</Text>
