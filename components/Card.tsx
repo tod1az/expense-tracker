@@ -1,6 +1,7 @@
-import { Pressable, Text, View } from "react-native";
+import { Text, View } from "react-native";
 import { Expense } from "../lib/types";
 import { Pencil } from "lucide-react-native";
+import { Link } from "expo-router";
 
 type CardProps = {
   expense: Expense;
@@ -18,13 +19,9 @@ export default function Card(props: CardProps) {
           {new Date(props.expense._creationTime).toLocaleDateString()}
         </Text>
       </View>
-      <Pressable
-        onPress={() => {
-          console.log("presionado");
-        }}
-      >
+      <Link href={"/edit"}>
         <Pencil color={"black"} />
-      </Pressable>
+      </Link>
     </View>
   );
 }
