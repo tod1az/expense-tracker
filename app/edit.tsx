@@ -23,6 +23,7 @@ export default function Page() {
   const [error, setError] = useState<unknown>("");
   const [isLoading, setIsLoading] = useState(false);
   const editExpense = useMutation(api.expenses.editExpense);
+  const deleteExpense = useMutation(api.expenses.deleteExpense);
   const { goBack } = useNavigation();
 
   const handlePress = async () => {
@@ -44,19 +45,19 @@ export default function Page() {
   return (
     <PageContainer>
       <Header>Editar Gasto</Header>
-      <View className="bg-white/40 rounded-lg p-2 w-3/4 pb-4 flex flex-col items-center gap-3">
-        <Text>Descripción</Text>
+      <View className="bg-white/40 rounded-lg pt-2 px-3 w-3/4 flex flex-col items-center text-left gap-3">
+        <Text className="w-full px-2">Descripción</Text>
         <TextInput
           onChangeText={setDescription}
           value={newDescription}
-          className="px-2 w-[95%] border-2 bg-white"
+          className="px-2 w-[92%] border-2 bg-white"
         />
-        <Text>Costo</Text>
+        <Text className="w-full px-2">Costo</Text>
         <TextInput
           onChangeText={setCost}
           value={newCost as string}
           keyboardType="numeric"
-          className="px-2 w-[95%] border-2 bg-white"
+          className="px-2 w-[92%] border-2 bg-white"
         />
         <Pressable
           onPress={handlePress}
