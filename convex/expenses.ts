@@ -17,3 +17,16 @@ export const saveExpense = mutation({
     return newExpense;
   },
 });
+
+export const editExpense = mutation({
+  args: { description: v.string(), cost: v.number(), id: v.id("expenses") },
+
+  handler: async (ctx, args) => {
+    const { id } = args;
+    const newExpense = await ctx.db.patch(id, {
+      description: args.description,
+      cost: args.cost,
+    });
+    return newExpense;
+  },
+});
