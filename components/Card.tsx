@@ -19,7 +19,16 @@ export default function Card(props: CardProps) {
           {new Date(props.expense._creationTime).toLocaleDateString()}
         </Text>
       </View>
-      <Link href={"/edit"}>
+      <Link
+        href={{
+          pathname: "/edit",
+          params: {
+            id: props.expense._id,
+            cost: props.expense.cost,
+            description: props.expense.description,
+          },
+        }}
+      >
         <Pencil color={"black"} />
       </Link>
     </View>
