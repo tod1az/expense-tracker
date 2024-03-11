@@ -30,3 +30,10 @@ export const editExpense = mutation({
     return newExpense;
   },
 });
+
+export const deleteExpense = mutation({
+  args: { id: v.id("expenses") },
+  handler: async (ctx, args) => {
+    await ctx.db.delete(args.id);
+  },
+});
