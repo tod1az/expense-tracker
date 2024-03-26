@@ -24,9 +24,11 @@ export default function Main() {
           <Separator />
         </View>
       )}
-      <View className="bg-white/80 w-10 h-10  flex items-center mt-6 rounded-full justify-center">
+      <View className="mt-6">
         <Link href={"/post"}>
-          <Text>+</Text>
+          <View className="w-10 h-10 hover bg-white rounded-full border-white flex items-center justify-center">
+            <Text>+</Text>
+          </View>
         </Link>
       </View>
     </PageContainer>
